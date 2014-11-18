@@ -24,7 +24,7 @@ $ sudo make install
 ```sh
 # install java development kit
 $ sudo apt-get install default-jdk
-$ wget https://github.com/m943040028/jcardsim/releases/download/preview/jcardsim.jar
+$ wget https://github.com/m943040028/jcardsim/releases/download/release1/jcardsim.jar
 $ java -cp jcardsim.jar org.linaro.seapi.VpcdClient
 ```
 - Get the SE API implementation source code
