@@ -1,3 +1,7 @@
+Design Document
+==========
+Please refer to [Design Document]
+
 Testing Secure Element API
 ==========
 - Download QEMU-OPTEE based on [QEMU Script].
@@ -52,8 +56,10 @@ In order to let you understand what is happened in the test case, some terminolo
 - **Logical Channel:** It's used for host application(in our case, a TA) to communcate with applets on the SmartCard. [GlobalPlatform Card Specification] defined maximum 20 logical channels, numbered from 0~19. Channel number 0 is so-called **Basic logical channel**, or in short, **Basic channel**. A channel can be opened or closed by a host application (TA, in our case). It's the SmartCard OS's responsbility to manage the state of logical channels. Basic channel is always opened and cannot be closed. A channel must **select** an applet, which means the command passed through the channel will be process by the selected applet. GlobalPlatform required a default applet must be selected on basic channel after system reset. Host application can select different applet by issues a **SELECT command** on basic channel. Other logical channels (numbered 1~19) can be opened with or without a given **AID**. If AID is not given, the applet selected on basic channel will be selected on the just opened logical channel.
 - **MultiSelectable and Non-MultiSelectable Applet:** A applet can be MultiSelectable or Non-MultiSelectable. For a Non-MultiSelectable applet, it can only be selected by a channel, further **SELECT command** on other channel that targeting to the applet will fail to success. **MultiSelectable** applet can be selected by multiple channels, the applet can decide maximum number of channels it's willing to accept.
 
+
 [QEMU Script]:https://github.com/OP-TEE/optee_os/blob/master/scripts/setup_qemu_optee.sh
 [Modified QEMU]:https://github.com/m943040028/qemu/tree/smart_card_emul
 [JavaCard simulator]:https://github.com/m943040028/jcardsim/tree/se_api
 [PC/SC Lite]:https://pcsclite.alioth.debian.org/
 [GlobalPlatform Card Specification]:http://www.globalplatform.org/specificationscard.asp
+[Design Document]:https://docs.google.com/a/linaro.org/document/d/1SAjJIZfxgvVyC4If1udGUGSF5rrrr4caWDR-LLuc70A/edit?usp=sharing
